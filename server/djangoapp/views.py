@@ -28,15 +28,22 @@ def contact(request):
     return render(request, 'djangoapp/contact.html')
 
 # Create a `login_request` view to handle sign in request
-# def login_request(request):
-# ...
+def login_request(request):
+
+    return render(request, "djangoapp/login_request.html")
 
 # Create a `logout_request` view to handle sign out request
-# def logout_request(request):
-# ...
+def logout_request(request):
+    # Get the user object based on session id in request
+    print("Log out the user `{}`".format(request.user.username))
+    # Logout user in the request
+    logout(request)
+    # Redirect user back to course list view
+    return redirect('onlinecourse:popular_course_list')
 
 # Create a `registration_request` view to handle sign up request
-# def registration_request(request):
+def registration_request(request):
+    return render(request, "djangoapp/registration_request.html")
 # ...
 
 # Update the `get_dealerships` view to render the index page with a list of dealerships
